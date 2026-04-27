@@ -1,0 +1,46 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            set -e
+            APP_DIR=/var/etc/portfolio
+            APP_NAME="portfolio"
+
+            echo "[1/5] Ulazim u direktorijum projekta..."
+            cd "$APP_DIR"
+
+            echo "[2/5] Povlacim najnovije izmene sa GitHub-a..."
+            git pull origin main
+
+            echo "[3/5] Instaliram zavisnosti..."
+            npm ci --omit=dev
+
+            echo "[4/5] Buildujem aplikaciju..."
+            npm run build
+
+            echo "[5/5] Restartujem PM2 proces..."
+            if pm2 show "$APP_NAME" > /dev/null 2>&1; then
+              pm2 reload "$APP_NAME"
+            else
+              pm2 start npm --name "$APP_NAME" -- start
+              pm2 save
+            fi
+
+            echo "Deployment uspjesno zavrsen!"
