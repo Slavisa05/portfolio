@@ -32,7 +32,7 @@ jobs:
             git pull origin main
 
             echo "[3/5] Instaliram zavisnosti..."
-            npm ci --omit=dev
+            npm ci
 
             echo "[4/5] Buildujem aplikaciju..."
             npm run build
