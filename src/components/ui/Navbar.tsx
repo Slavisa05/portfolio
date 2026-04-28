@@ -40,7 +40,7 @@ export default function Navbar() {
             {/* Glavna navbar traka */}
             <nav
                 ref={menuRef}
-                className="w-full md:max-w-[60vw] border-2 border-card-border shadow-xl flex items-center justify-between gap-3.5 p-4 md:p-5 rounded-xs"
+                className="w-full md:max-w-[60vw] border-2 border-card-border shadow-xl flex items-center justify-between gap-3.5 p-4 md:p-5 rounded-xl"
                 style={{ background: "var(--card)" }}
             >
                 <strong className="italic text-2xl tracking-tight">slavisadev</strong>
