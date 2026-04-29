@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Mail } from "lucide-react"
 
 const navLinks = [
-    { label: "o meni", href: "/" },
+    { label: "o meni", href: "/#o-meni" },
     { label: "projekti", href: "/#projekti" },
     { label: "radi sa mnom", href: "/#kontakt" },
 ]

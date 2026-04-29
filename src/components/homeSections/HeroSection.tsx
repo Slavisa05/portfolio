@@ -18,11 +18,11 @@ export default function HeroSection() {
                     <h1>Sajtovi koji rade za tvoj biznis</h1>
 
                     <div className="flex flex-col md:flex-row md:items-center gap-3">
-                        <Link href="#projekti">
+                        <Link href="/#projekti">
                             <Button text="pogledaj projekte" variant="secondary" />
-                            
+
                         </Link>
-                        <Link href="#kontakt">
+                        <Link href="/#kontakt">
                             <Button text="radi sa mnom" />
                         </Link>
                     </div>

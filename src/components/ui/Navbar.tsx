@@ -6,9 +6,9 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const navLinks = [
-    { label: "o meni", href: "#o-meni" },
-    { label: "projekti", href: "#projekti" },
-    { label: "radi sa mnom", href: "#kontakt" },
+    { label: "o meni", href: "/#o-meni" },
+    { label: "projekti", href: "/#projekti" },
+    { label: "radi sa mnom", href: "/#kontakt" },
 ]
 
 export default function Navbar() {
