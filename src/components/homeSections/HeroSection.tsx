@@ -14,7 +14,7 @@ export default function HeroSection() {
                         Dostupan za nove projekte
                     </div>
 
-                    <h1 className="capitalize">Sajtovi koji rade za tvoj biznis</h1>
+                    <h1>Sajtovi koji rade za tvoj biznis</h1>
 
                     <div className="flex flex-col md:flex-row md:items-center gap-3">
                         <Button text="pogledaj projekte" variant="secondary" />

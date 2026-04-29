@@ -40,17 +40,27 @@ export default function AboutSection() {
 
     return (
         <section ref={sectionRef} className="py-20 px-[5vw]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mx-auto">
 
                 {/* Uvodni tekst */}
                 <div className="flex flex-col gap-5">
                     <h2>O meni</h2>
                     <p className="text-muted text-base md:text-lg leading-relaxed">
-                        Zdravo! Ja sam Slaviša, Full Stack Developer iz Srbije sa strašću prema pravljenju modernih web aplikacija.
-                        Sa 20 godina, već imam iskustvo u radu sa klijentima i izgradnji projekata od nule.
+                        Zdravo, ja sam Slaviša — full stack developer iz Srbije.
+                        Pravim web sajtove aplikacije za male biznise kojima treba nešto što zaista radi, a ne samo dobro izgleda.
                     </p>
                     <p className="text-muted text-base md:text-lg leading-relaxed">
-                        Volim čist kod, dobre performanse i dizajn koji radi. Uvek sam otvoren za nove prilike i saradnju.
+                        Radim sa nextjs-om, Django-om i PostgreSQL-om. Većina mojih projekata
+                        kreće od razgovora s klijentom i završava se deployom na produkciju — sve sam.
+                    </p>
+
+                    <p className="text-muted text-base md:text-lg leading-relaxed">
+                        Nije mi cilj samo da napravim sajt, cilj mi je da vašem biznisu rešim problem.
+                        Držim se rokova, redovno vas izveštavam o radu i ne nestajem nakon isporuke.
+                    </p>
+
+                    <p className="text-muted text-base md:text-lg leading-relaxed">
+                        Kada ne kodiram, najviše volim da učim nove tehnologije i da pratim nove trendove u tehnologiji (posebno AI).
                     </p>
                 </div>
 
