@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../ui/Button";
 import ProjectCard from "../ui/ProjectCard";
 
@@ -17,8 +18,13 @@ export default function HeroSection() {
                     <h1>Sajtovi koji rade za tvoj biznis</h1>
 
                     <div className="flex flex-col md:flex-row md:items-center gap-3">
-                        <Button text="pogledaj projekte" variant="secondary" />
-                        <Button text="radi sa mnom" />
+                        <Link href="#projekti">
+                            <Button text="pogledaj projekte" variant="secondary" />
+                            
+                        </Link>
+                        <Link href="#kontakt">
+                            <Button text="radi sa mnom" />
+                        </Link>
                     </div>
 
                     <p className="text-muted -mt-2">*odgovaram u roku od 24h</p>

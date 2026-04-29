@@ -18,7 +18,7 @@ const projects = [
     {
         title: "Salon App",
         image: "/salonapp_termini.png",
-        url: "slavisadev.com/salon",
+        url: "https://github.com/Slavisa05/salon_app",
         caseStudyUrl: "/projekti/salon-app",
         description: "Sistem za zakazivanje termina u frizerskom salonu sa kalendarom i upravljanjem slobodnim terminima.",
         tags: ["Django", "PostgreSQL", "VPS Hosting"],
@@ -27,7 +27,7 @@ const projects = [
     {
         title: "WMS Sistem",
         image: "/wms_dashboard.png",
-        url: "slavisadev.com/wms",
+        url: "https://github.com/Slavisa05/WMS_system",
         caseStudyUrl: "/projekti/wms-sistem",
         description: "WMS dashboard za upravljanje skladištem, inventarom, transportom i dokumentima.",
         tags: ["React.js", "Django", "PostgreSQL"],
@@ -54,7 +54,7 @@ export default function ProjectSection() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-20 px-[5vw]">
+        <section id="projekti" ref={sectionRef} className="py-20 px-[5vw]">
             <div className="mx-auto flex flex-col gap-10">
                 <h2>Projekti</h2>
 
@@ -139,7 +139,7 @@ export default function ProjectSection() {
                                         <ExternalLink size={13} />
                                         Live demo
                                     </a>
-                                    <a
+                                    {/* <a
                                         href={project.caseStudyUrl}
                                         className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-wide py-2 px-4 rounded-xl border-2 border-foreground text-foreground relative overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 before:absolute before:inset-0 before:bg-foreground before:origin-left before:scale-x-0 before:transition-transform before:duration-300 hover:before:scale-x-100 hover:text-background"
                                     >
@@ -147,7 +147,7 @@ export default function ProjectSection() {
                                             <BookOpen size={13} />
                                             Case study
                                         </span>
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                         </motion.div>

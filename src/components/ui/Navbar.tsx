@@ -6,9 +6,9 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const navLinks = [
-    { label: "o meni", href: "/" },
-    { label: "projekti", href: "/" },
-    { label: "radi sa mnom", href: "/" },
+    { label: "o meni", href: "#o-meni" },
+    { label: "projekti", href: "#projekti" },
+    { label: "radi sa mnom", href: "#kontakt" },
 ]
 
 export default function Navbar() {
@@ -43,7 +43,9 @@ export default function Navbar() {
                 className="w-full md:max-w-[60vw] border-2 border-card-border shadow-xl flex items-center justify-between gap-3.5 p-4 md:p-5 rounded-xl"
                 style={{ background: "var(--card)" }}
             >
-                <strong className="italic text-2xl tracking-tight">slavisadev</strong>
+                <Link href="/">
+                    <strong className="italic text-2xl tracking-tight">slavisadev</strong>
+                </Link>
 
                 {/* Desktop linkovi */}
                 <ul className="hidden md:flex items-center gap-4">

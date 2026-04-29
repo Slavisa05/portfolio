@@ -39,7 +39,7 @@ export default function AboutSection() {
     }, [started, full]);
 
     return (
-        <section ref={sectionRef} className="py-20 px-[5vw]">
+        <section id="o-meni" ref={sectionRef} className="py-20 px-[5vw]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mx-auto">
 
                 {/* Uvodni tekst */}
@@ -50,7 +50,7 @@ export default function AboutSection() {
                         Pravim web sajtove aplikacije za male biznise kojima treba nešto što zaista radi, a ne samo dobro izgleda.
                     </p>
                     <p className="text-muted text-base md:text-lg leading-relaxed">
-                        Radim sa nextjs-om, Django-om i PostgreSQL-om. Većina mojih projekata
+                        Radim sa Nextjs-om, Django-om i PostgreSQL-om. Većina mojih projekata
                         kreće od razgovora s klijentom i završava se deployom na produkciju — sve sam.
                     </p>
 

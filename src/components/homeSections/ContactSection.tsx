@@ -45,7 +45,7 @@ export default function ContactSection() {
                     viewport={{ once: true }}
                 >
                     <h2>Imate projekat na umu?</h2>
-                    <p className="text-muted">Pošaljite nam poruku i odgovorićemo vam u najkraćem mogućem roku</p>
+                    <p className="text-muted">Pošaljite nam poruku i odgovoriću vam u najkraćem mogućem roku</p>
                 </motion.div>
 
                 {/* Forma — polja se pojavljuju jedno po jedno */}

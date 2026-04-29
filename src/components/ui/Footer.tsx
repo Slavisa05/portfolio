@@ -63,7 +63,7 @@ export default function Footer() {
 
                 {/* Copyright */}
                 <div className="text-xs text-muted text-center border-t border-card-border pt-6">
-                    &copy; {new Date().getFullYear()} slavisa.dev — Sva prava zadržana
+                    &copy; {new Date().getFullYear()} slavisadev — Sva prava zadržana
                 </div>
             </div>
         </footer>

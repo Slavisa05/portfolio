@@ -6,16 +6,16 @@ import { Quote } from "lucide-react"
 
 const testimonials = [
     {
-        name: "Marko Markovic",
-        company: "Naziv Firme",
-        url: "firmaweb.com",
+        name: "Dario Kuzeljević - PITATI AKO MOGU OVO DA STAVIM",
+        company: "ElaraLabs",
+        url: "elaralabs.rs",
         message:
             "Slaviša je isporučio tačno ono što smo tražili i to pre roka. Komunikacija je bila odlična tokom celog projekta — uvek dostupan i spreman da odgovori na pitanja. Sajt radi savršeno i klijenti su oduševljeni.",
     },
     {
-        name: "Ime Prezime",
-        company: "Naziv Firme",
-        url: "firmaweb.rs",
+        name: "Strahinja Leštarić - PITATI AKO MOGU OVO DA STAVIM",
+        company: "Gvozdeni Zmaj",
+        url: "govzdenizmaj.com",
         message:
             "Profesionalan pristup od prvog razgovora do isporuke. Dobili smo moderan sajt koji zaista donosi rezultate. Posebno cenim što nije nestao nakon završetka posla — i dalje je tu kad zatreba.",
     },

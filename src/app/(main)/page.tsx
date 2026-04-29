@@ -14,7 +14,7 @@ export default function Home() {
         <StackSection />
         <ProjectSection />
         <ProcesRadaSection />
-        <TestimonialSection />
+        {/* <TestimonialSection /> */}
         <ContactSection />
     </main>
   );
