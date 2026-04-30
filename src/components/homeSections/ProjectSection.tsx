@@ -86,6 +86,7 @@ export default function ProjectSection() {
                                         alt={project.title}
                                         fill
                                         className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                        loading="lazy"
                                     />
                                 ) : (
                                     <div

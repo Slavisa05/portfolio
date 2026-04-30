@@ -9,20 +9,22 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Slaviša Arsenijević — Full Stack Web Developer | Next.js & Django",
-  description: "Pravim web sajtove i aplikacije za male biznise. Next.js, Django, PostgreSQL — od ideje do deploya. Odgovaram u roku od 24h.",
+  title: "Slaviša Arsenijević — Web Developer | Next.js & Django",
+  description: "Izrada web sajtova i aplikacija za male biznise u Srbiji. Next.js, Django, PostgreSQL — od ideje do deploya. Odgovaram u roku od 24h.",
 
   openGraph: {
     title: "Slaviša Arsenijević — Full Stack Web Developer",
-    description: "Pravim web sajtove i aplikacije za male biznise. Od ideje do deploya.",
+    description: "Pravim web sajtove i aplikacije za male biznise u Srbiji. Od ideje do deploya.",
     url: "https://slavisadev.com",
     siteName: "slavisadev.com",
     locale: "sr_RS",
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Slaviša Arsenijević — Full Stack Web Developer",
-    description: "Pravim web sajtove i aplikacije za male biznise.",
+    description: "Pravim web sajtove i aplikacije za male biznise u Srbiji.",
     images: ["https://slavisadev.com/slavisadev.png"],
   },
 
