@@ -55,7 +55,6 @@ export default function ProjectCard({
                         alt={title}
                         fill
                         className="object-cover object-top"
-                        loading="lazy"
                     />
                 ) : (
                     <div
