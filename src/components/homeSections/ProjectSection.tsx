@@ -16,6 +16,24 @@ const projects = [
         accent: "#06b6d4",
     },
     {
+        title: "Rio Sty1e",
+        image: "/rio.png",
+        url: "riosty1e.com",
+        caseStudyUrl: "/projetki/riosty1e",
+        description: "Shopify prodavnica za streetwear brend — trenerke, majice i kačketi sa custom dizajnom.",
+        tags: ["Shopify"],
+        accent: "#a1a1a1"
+    },
+    {
+        title: "Gvozdeni Zmaj",
+        image: "/gvozdenizmaj.png",
+        url: "gvozdenizmaj.com",
+        caseStudyUrl: "/projetki/gvozdenizmaj",
+        description: "Websajt za strelište sa rasporedom takmičenja, informacijama o opremi i mogućnošću kontakta za rezervaciju termina.",
+        tags: ["HTML", "CSS", "JavaScript"],
+        accent: "#D7FF40"
+    },
+    {
         title: "Salon App",
         image: "/salonapp_termini.png",
         url: "https://github.com/Slavisa05/salon_app",

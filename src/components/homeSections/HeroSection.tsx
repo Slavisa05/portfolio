@@ -34,12 +34,12 @@ export default function HeroSection() {
                     {/* Kartica pozadi lijevo */}
                     <div className="absolute top-16 left-4 -rotate-6 z-10">
                         <ProjectCard
-                            title="Salon App"
-                            image="/salonapp_termini.png"
-                            url="slavisadev.com/salon"
-                            description="Sistem za zakazivanje termina u frizerskom salonu sa kalendarom i upravljanjem slobodnim terminima."
-                            tags={["Django", "PostgreSQL", "VPS Hosting"]}
-                            accent="#10b981"
+                            title="Gvozdeni Zmaj"
+                            image="/gvozdenizmaj.png"
+                            url="gvozdenizmaj.com"
+                            description="Websajt za strelište sa rasporedom takmičenja, informacijama o opremi i mogućnošću kontakta za rezervaciju termina."
+                            tags={["HTML", "CSS", "JavaScript"]}
+                            accent="#D7FF40"
                             index={0}
                         />
                     </div>
