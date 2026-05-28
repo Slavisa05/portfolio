@@ -34,6 +34,15 @@ const projects = [
         accent: "#D7FF40"
     },
     {
+        title: "WMS Sistem",
+        image: "/wms_dashboard.png",
+        url: "slavisadev.com/wms/",
+        caseStudyUrl: "/projekti/wms-sistem",
+        description: "WMS dashboard za upravljanje skladištem, inventarom, transportom i dokumentima. Da bi ste se ulogovali kao menadzer: menadzertest (sifra: SlavisaDev!11); kao zaposleni: zaposlenitest (sifra: SlavisaDev!11)",
+        tags: ["React.js", "Django", "PostgreSQL"],
+        accent: "#6366f1",
+    },
+    {
         title: "Salon App",
         image: "/salonapp_termini.png",
         url: "https://github.com/Slavisa05/salon_app",
@@ -41,15 +50,6 @@ const projects = [
         description: "Sistem za zakazivanje termina u frizerskom salonu sa kalendarom i upravljanjem slobodnim terminima.",
         tags: ["Django", "PostgreSQL", "VPS Hosting"],
         accent: "#10b981",
-    },
-    {
-        title: "WMS Sistem",
-        image: "/wms_dashboard.png",
-        url: "https://github.com/Slavisa05/WMS_system",
-        caseStudyUrl: "/projekti/wms-sistem",
-        description: "WMS dashboard za upravljanje skladištem, inventarom, transportom i dokumentima.",
-        tags: ["React.js", "Django", "PostgreSQL"],
-        accent: "#6366f1",
     },
 ]
 
