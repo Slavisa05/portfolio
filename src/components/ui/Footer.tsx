@@ -8,7 +8,7 @@ const navLinks = [
 ]
 
 const socials = [
-    { icon: Mail, url: "https://instagram.com/arsennijevic", label: "Instagram" },
+    { icon: Mail, url: "https://instagram.com/slavisadev", label: "Instagram" },
     { icon: Mail, url: "https://linkedin.com/in/slaviša-arsenijević-69b986316", label: "LinkedIn" },
     { icon: Mail, url: "https://github.com/Slavisa05", label: "GitHub" },
 ]
@@ -35,7 +35,7 @@ export default function Footer() {
                                 </a>
                             ))}
                             <a
-                                href="mailto:slavisa@example.com"
+                                href="mailto:slavisa@slavisadev.com"
                                 className="text-muted hover:text-accent transition-colors duration-200 ml-2"
                                 aria-label="Email"
                             >
