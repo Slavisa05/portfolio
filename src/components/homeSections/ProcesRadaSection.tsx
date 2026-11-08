@@ -9,28 +9,28 @@ const steps = [
         icon: MessageCircle,
         title: "Razgovor",
         description:
-            "Saznajem šta vam treba — koji problem rešavam, šta je bitno i koji su rokovi. Nema pritiska, samo razgovor.",
+            "Saznajem šta vam treba — koji problem rešavamo, šta vam je bitno i koji su rokovi. Nema pritiska, a ponuda je besplatna.",
         accent: "#6366f1",
     },
     {
         icon: Lightbulb,
         title: "Plan & Dizajn",
         description:
-            "Definišem stranice i funkcionalnosti, pravim plan projekta i kreiram dizajn pre nego što se napiše i linija koda.",
+            "Definišem stranice i funkcionalnosti i pravim dizajn koji vidite pre nego što se napiše i linija koda. Uključena su 3 kruga izmena.",
         accent: "#06b6d4",
     },
     {
         icon: Code2,
         title: "Razvoj",
         description:
-            "Kodiram sve što je dogovoreno. Redovno vas obaveštavamo o napretku i uzimam vaš feedback tokom rada.",
+            "Kodiram sve što je dogovoreno. Redovno vas obaveštavam o napretku i uzimam u obzir vaše komentare tokom rada.",
         accent: "#10b981",
     },
     {
         icon: Rocket,
         title: "Isporuka & Podrška",
         description:
-            "Postavljam sajt na produkciju i ne nestajem — dostupan sam za izmene i podršku i nakon isporuke.",
+            "Postavljam sajt na internet i ne nestajem — dostupan sam za izmene i podršku i nakon isporuke.",
         accent: "#f59e0b",
     },
 ]
@@ -93,7 +93,7 @@ export default function ProcesRadaSection() {
     const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
     return (
-        <section ref={sectionRef} className="py-20 px-[5vw]">
+        <section id="proces" ref={sectionRef} className="py-20 px-[5vw]">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
                 {/* Leva strana: naslov (sticky na desktopu) */}

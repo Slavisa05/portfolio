@@ -2,56 +2,92 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { ExternalLink, BookOpen } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import Image from "next/image"
 
-const projects = [
+type Project = {
+    title: string
+    kind: "Klijent" | "Školski projekat" | "Lični projekat"
+    image: string
+    url: string
+    href: string
+    caseStudyUrl?: string
+    problem?: string
+    description: string
+    demoAccess?: { label: string; user: string; password: string }[]
+    tags: string[]
+    accent: string
+    hidden?: boolean
+}
+
+const projects: Project[] = [
     {
         title: "Elaralabs",
+        kind: "Klijent",
         image: "/elaralabs_hero.png",
         url: "elaralabs.rs",
+        href: "https://elaralabs.rs",
         caseStudyUrl: "/projekti/elaralabs",
-        description: "Landing stranica za prirodno labelo sa 3D animacijama proizvoda i sekcijom za narudžbine.",
+        problem: "Novom brendu je trebao sajt preko koga može da prodaje.",
+        description: "Landing stranica sa 3D animacijama proizvoda i sekcijom za narudžbine.",
         tags: ["Next.js", "Drag & Drop", "Shopify"],
         accent: "#06b6d4",
     },
     {
-        title: "Rio Sty1e",
-        image: "/rio.png",
-        url: "riosty1e.com",
-        caseStudyUrl: "/projetki/riosty1e",
-        description: "Shopify prodavnica za streetwear brend — trenerke, majice i kačketi sa custom dizajnom.",
-        tags: ["Shopify"],
-        accent: "#a1a1a1"
-    },
-    {
         title: "Gvozdeni Zmaj",
+        kind: "Klijent",
         image: "/gvozdenizmaj.png",
         url: "gvozdenizmaj.com",
-        caseStudyUrl: "/projetki/gvozdenizmaj",
-        description: "Websajt za strelište sa rasporedom takmičenja, informacijama o opremi i mogućnošću kontakta za rezervaciju termina.",
+        href: "https://gvozdenizmaj.com",
+        caseStudyUrl: "/projekti/gvozdenizmaj",
+        problem: "Strelište uopšte nije postojalo na internetu.",
+        description: "Sajt sa rasporedom takmičenja, informacijama o opremi i kontaktom za rezervaciju termina.",
         tags: ["HTML", "CSS", "JavaScript"],
-        accent: "#D7FF40"
+        accent: "#D7FF40",
+    },
+    {
+        title: "Rio Sty1e",
+        kind: "Klijent",
+        image: "/rio.png",
+        url: "riosty1e.com",
+        href: "https://riosty1e.com",
+        caseStudyUrl: "/projekti/riosty1e",
+        problem: "Brend je prodavao samo preko Instagram poruka.",
+        description: "Shopify prodavnica za trenerke, majice i kačkete sa custom dizajnom — narudžbine stižu same.",
+        tags: ["Shopify"],
+        accent: "#a1a1a1",
     },
     {
         title: "WMS Sistem",
+        kind: "Školski projekat",
         image: "/wms_dashboard.png",
-        url: "slavisadev.com/wms/",
+        url: "slavisadev.com/wms",
+        href: "https://slavisadev.com/wms/",
         caseStudyUrl: "/projekti/wms-sistem",
-        description: "WMS dashboard za upravljanje skladištem, inventarom, transportom i dokumentima. Da bi ste se ulogovali kao menadzer: menadzertest (sifra: SlavisaDev!11); kao zaposleni: zaposlenitest (sifra: SlavisaDev!11)",
+        description: "Sistem za upravljanje skladištem, inventarom, transportom i dokumentima, sa posebnim ulogama za menadžere i zaposlene.",
+        demoAccess: [
+            { label: "Menadžer", user: "menadzertest", password: "SlavisaDev!11" },
+            { label: "Zaposleni", user: "zaposlenitest", password: "SlavisaDev!11" },
+        ],
         tags: ["React.js", "Django", "PostgreSQL"],
         accent: "#6366f1",
     },
     {
+        // Sklonjeno iz portfolija dok se aplikacija ne sredi — skloni `hidden` da se vrati
         title: "Salon App",
+        kind: "Lični projekat",
         image: "/salonapp_termini.png",
-        url: "https://github.com/Slavisa05/salon_app",
+        url: "github.com/Slavisa05/salon_app",
+        href: "https://github.com/Slavisa05/salon_app",
         caseStudyUrl: "/projekti/salon-app",
         description: "Sistem za zakazivanje termina u frizerskom salonu sa kalendarom i upravljanjem slobodnim terminima.",
         tags: ["Django", "PostgreSQL", "VPS Hosting"],
         accent: "#10b981",
+        hidden: true,
     },
 ]
+
+const visibleProjects = projects.filter(p => !p.hidden)
 
 export default function ProjectSection() {
     const sectionRef = useRef<HTMLElement>(null)
@@ -74,10 +110,15 @@ export default function ProjectSection() {
     return (
         <section id="projekti" ref={sectionRef} className="py-20 px-[5vw]">
             <div className="mx-auto flex flex-col gap-10">
-                <h2>Projekti</h2>
+                <div className="flex flex-col gap-3">
+                    <h2>Projekti</h2>
+                    <p className="text-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                        Sajtovi i prodavnice koje sam napravio za prave biznise — i sistemi koji pokazuju šta još mogu da izgradim.
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {projects.map((project, i) => (
+                    {visibleProjects.map((project, i) => (
                         <motion.div
                             key={project.title}
                             initial={{ opacity: 0, y: 32 }}
@@ -101,7 +142,7 @@ export default function ProjectSection() {
                                 {project.image ? (
                                     <Image
                                         src={project.image}
-                                        alt={project.title}
+                                        alt={`${project.title} — snimak ekrana`}
                                         fill
                                         className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                                         loading="lazy"
@@ -127,15 +168,39 @@ export default function ProjectSection() {
                             </div>
 
                             {/* Info */}
-                            <div className="p-5 flex flex-col gap-3">
-                                <div className="flex items-start justify-between gap-3">
+                            <div className="p-5 flex flex-col gap-3 flex-1">
+                                <div className="flex items-center justify-between gap-3">
                                     <p className="font-semibold text-base leading-snug">{project.title}</p>
-                                    <div
-                                        className="w-2 h-2 rounded-full mt-1.5 shrink-0"
-                                        style={{ background: project.accent }}
-                                    />
+                                    <span
+                                        className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-medium px-2 py-0.5 rounded-full border border-card-border text-muted shrink-0"
+                                    >
+                                        <span
+                                            className="w-1.5 h-1.5 rounded-full"
+                                            style={{ background: project.accent }}
+                                        />
+                                        {project.kind}
+                                    </span>
                                 </div>
-                                <p className="text-sm text-muted leading-relaxed">{project.description}</p>
+                                {project.problem && (
+                                    <p className="text-sm leading-relaxed">
+                                        <span className="text-muted">Problem: </span>
+                                        {project.problem}
+                                    </p>
+                                )}
+                                <p className="text-sm text-muted leading-relaxed">
+                                    {project.problem && <span>Rešenje: </span>}
+                                    {project.description}
+                                </p>
+                                {project.demoAccess && (
+                                    <div className="text-xs font-mono rounded-lg border border-card-border bg-background px-3 py-2.5 flex flex-col gap-1">
+                                        <span className="font-sans font-semibold text-foreground">Demo pristup</span>
+                                        {project.demoAccess.map(acc => (
+                                            <span key={acc.user} className="text-muted">
+                                                {acc.label}: <span className="text-foreground">{acc.user}</span> / <span className="text-foreground">{acc.password}</span>
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
                                 <div className="flex flex-wrap gap-1.5 mt-1">
                                     {project.tags.map(tag => (
                                         <span
@@ -148,17 +213,18 @@ export default function ProjectSection() {
                                 </div>
 
                                 {/* Buttons */}
-                                <div className="flex gap-3 mt-2">
+                                <div className="flex gap-3 mt-auto pt-2">
                                     <a
-                                        href={`https://${project.url}`}
+                                        href={project.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-wide py-2 px-4 rounded-xl border-2 border-accent bg-accent text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                                     >
                                         <ExternalLink size={13} />
-                                        Live demo
+                                        {project.kind === "Klijent" ? "Pogledajte sajt" : "Live demo"}
                                     </a>
-                                    {/* <a
+                                    {/* Case study dugme — vratiti (i import BookOpen) kad stranice budu gotove
+                                    <a
                                         href={project.caseStudyUrl}
                                         className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-wide py-2 px-4 rounded-xl border-2 border-foreground text-foreground relative overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 before:absolute before:inset-0 before:bg-foreground before:origin-left before:scale-x-0 before:transition-transform before:duration-300 hover:before:scale-x-100 hover:text-background"
                                     >

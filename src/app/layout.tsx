@@ -1,63 +1,62 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "./providers";
-import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import CookieConsent from "@/components/ui/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: 'swap',
 });
 
+const description =
+  "Izrada sajtova i online prodavnica za male biznise — Ub, Beograd i cela Srbija. Dizajn po meri, hosting i održavanje. Sajt od 250 €, besplatna ponuda, odgovor u roku od 24h.";
+
 export const metadata: Metadata = {
-  title: "Slaviša Arsenijević — Web Developer | Next.js & Django",
-  description: "Izrada web sajtova i aplikacija za male biznise u Srbiji. Next.js, Django, PostgreSQL — od ideje do deploya. Odgovaram u roku od 24h.",
+  metadataBase: new URL("https://slavisadev.com"),
+  title: {
+    default: "Izrada sajtova za male biznise | Slaviša Arsenijević — slavisadev",
+    template: "%s | slavisadev",
+  },
+  description,
 
   openGraph: {
-    title: "Slaviša Arsenijević — Full Stack Web Developer",
-    description: "Pravim web sajtove i aplikacije za male biznise u Srbiji. Od ideje do deploya.",
-    url: "https://slavisadev.com",
+    title: "Izrada sajtova za male biznise — slavisadev",
+    description,
+    url: "/",
     siteName: "slavisadev.com",
     locale: "sr_RS",
     type: "website",
     images: [
       {
-        url: "https://slavisadev.com/slavisadev.png",
+        url: "/slavisadev.png",
         width: 1200,
         height: 630,
-        alt: "Slaviša Arsenijević — Full Stack Web Developer",
+        alt: "slavisadev — izrada sajtova za male biznise",
       },
     ],
   },
 
-  // Twitter/X kartice
   twitter: {
     card: "summary_large_image",
-    title: "Slaviša Arsenijević — Full Stack Web Developer",
-    description: "Pravim web sajtove i aplikacije za male biznise u Srbiji.",
-    images: ["https://slavisadev.com/slavisadev.png"],
+    title: "Izrada sajtova za male biznise — slavisadev",
+    description,
+    images: ["/slavisadev.png"],
   },
 
-  // Canonical URL (sprijecava duplicate content)
-  alternates: {
-    canonical: "https://slavisadev.com",
-  },
-
-  // Ikonica u tabu browsera
   icons: {
     icon: "/favicon.ico",
   },
 
-  // Dozvoljava Googleu da indeksira
   robots: {
     index: true,
     follow: true,
@@ -72,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="sr" suppressHydrationWarning
+      lang="sr-Latn" suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -80,10 +79,9 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <CookieConsent />
         </Providers>
       </body>
-
-      <GoogleAnalytics gaId="G-2DQFYEV6ME" />
     </html>
   );
 }

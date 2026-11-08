@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
+import { MotionConfig } from "framer-motion";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem={true}
       disableTransitionOnChange={false}
     >
-      {children}
+      {/* Poštuje "smanji animacije" podešavanje operativnog sistema */}
+      <MotionConfig reducedMotion="user">
+        {children}
+      </MotionConfig>
     </ThemeProvider>
   );
 }

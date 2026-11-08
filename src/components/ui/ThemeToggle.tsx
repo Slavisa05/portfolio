@@ -1,26 +1,31 @@
 "use client"
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
-export default function ThemeToggle() {
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted ] = useState(false)
+const noopSubscribe = () => () => {}
 
-    useEffect(() => setMounted(true), [])
-    if (!mounted) return null;
-    
+export default function ThemeToggle() {
+    // resolvedTheme je stvarna tema i kada je izabrana "system"
+    const { resolvedTheme, setTheme } = useTheme()
+    // false na serveru, true u browseru — izbegava hydration mismatch bez setState u efektu
+    const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false)
+
+    if (!mounted) return <span className="block w-9.5 h-9.5" aria-hidden="true" />;
+
+    const isDark = resolvedTheme === "dark"
+
     return(
-        <button 
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-lg border border-card-border 
+        <button
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            className="p-2 rounded-lg border border-card-border
                         bg-card text-foreground
                         hover:bg-accent hover:text-white
-                        transition-colors duration-200"
-            aria-label="Toggle theme"
+                        transition-colors duration-200 cursor-pointer"
+            aria-label={isDark ? "Uključi svetlu temu" : "Uključi tamnu temu"}
         >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
     )
 }

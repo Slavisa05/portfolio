@@ -1,17 +1,11 @@
 import Link from "next/link"
-import { Mail } from "lucide-react"
+import { Mail, MessageCircle, Phone } from "lucide-react"
+import { contact, navLinks, socials } from "@/lib/site"
+import { GithubIcon, LinkedinIcon } from "./BrandIcons"
+import { CookieSettingsButton } from "./CookieConsent"
 
-const navLinks = [
-    { label: "o meni", href: "/#o-meni" },
-    { label: "projekti", href: "/#projekti" },
-    { label: "radi sa mnom", href: "/#kontakt" },
-]
+const socialIcons = { LinkedIn: LinkedinIcon, GitHub: GithubIcon }
 
-const socials = [
-    { icon: Mail, url: "https://instagram.com/slavisadev", label: "Instagram" },
-    { icon: Mail, url: "https://linkedin.com/in/slaviša-arsenijević-69b986316", label: "LinkedIn" },
-    { icon: Mail, url: "https://github.com/Slavisa05", label: "GitHub" },
-]
 
 export default function Footer() {
     return (
@@ -22,7 +16,9 @@ export default function Footer() {
                     <div className="flex flex-col gap-4 md:gap-6">
                         <strong className="italic text-2xl tracking-tight">slavisadev</strong>
                         <div className="flex items-center gap-4">
-                            {socials.map(s => (
+                            {socials.map(s => {
+                                const Icon = socialIcons[s.label]
+                                return (
                                 <a
                                     key={s.label}
                                     href={s.url}
@@ -31,15 +27,20 @@ export default function Footer() {
                                     aria-label={s.label}
                                     className="text-muted hover:text-accent transition-colors duration-200"
                                 >
-                                    {s.label}
+                                    <Icon size={20} />
                                 </a>
-                            ))}
-                            <a
-                                href="mailto:slavisa@slavisadev.com"
-                                className="text-muted hover:text-accent transition-colors duration-200 ml-2"
-                                aria-label="Email"
-                            >
-                                <Mail size={20} />
+                                )
+                            })}
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 text-sm text-muted">
+                            <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2 hover:text-accent transition-colors duration-200">
+                                <Mail size={16} /> {contact.email}
+                            </a>
+                            <a href={contact.phoneHref} className="inline-flex items-center gap-2 hover:text-accent transition-colors duration-200">
+                                <Phone size={16} /> {contact.phoneDisplay}
+                            </a>
+                            <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-accent transition-colors duration-200">
+                                <MessageCircle size={16} /> WhatsApp
                             </a>
                         </div>
                     </div>
@@ -63,7 +64,15 @@ export default function Footer() {
 
                 {/* Copyright */}
                 <div className="text-xs text-muted text-center border-t border-card-border pt-6">
-                    &copy; {new Date().getFullYear()} slavisadev — Sva prava zadržana
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                        <span>&copy; {new Date().getFullYear()} slavisadev — Sva prava zadržana</span>
+                        <span className="hidden sm:inline">·</span>
+                        <Link href="/politika-privatnosti" className="hover:text-accent transition-colors duration-200">
+                            Politika privatnosti
+                        </Link>
+                        <span className="hidden sm:inline">·</span>
+                        <CookieSettingsButton className="hover:text-accent transition-colors duration-200 cursor-pointer" />
+                    </div>
                 </div>
             </div>
         </footer>

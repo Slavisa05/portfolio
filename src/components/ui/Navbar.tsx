@@ -4,12 +4,8 @@ import Link from "next/link"
 import ThemeToggle from "./ThemeToggle"
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { navLinks } from "@/lib/site"
 
-const navLinks = [
-    { label: "o meni", href: "/#o-meni" },
-    { label: "projekti", href: "/#projekti" },
-    { label: "radi sa mnom", href: "/#kontakt" },
-]
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
@@ -40,7 +36,7 @@ export default function Navbar() {
             {/* Glavna navbar traka */}
             <nav
                 ref={menuRef}
-                className="w-full md:max-w-[60vw] border-2 border-card-border shadow-xl flex items-center justify-between gap-3.5 p-4 md:p-5 rounded-xl"
+                className="w-full md:max-w-[85vw] lg:max-w-[60vw] border-2 border-card-border shadow-xl flex items-center justify-between gap-3.5 p-4 md:p-5 rounded-xl"
                 style={{ background: "var(--card)" }}
             >
                 <Link href="/">
